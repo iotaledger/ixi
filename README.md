@@ -1,74 +1,22 @@
-# IOTA Extension Interface (IXI)
+# CHAT.IXI
 
 ## About
 
-The IOTA Extension Interface provides an API that connects IXI modules to the [Ict](https://github.com/iotaledger/ict) core client.
-IXI modules are applications built on top of the Tangle protocol.
+A simple IXI module to chat with others. Terminal based and blocks printing received transactions until user pressed ENTER key.
 
-## Creating an IXI
-
-### Step 1: Clone this Repository
-
-```shell
-# clone the example source code
-git clone https://github.com/iotaledger/ixi
-```
-
-You can also manually download the repository source code if you don't have **Git**.
-
-### Step 2: Open the Project in your IDE
-
-```shell
-# if you are using intellij (requires Gradle)
-gradle idea
-```
-
-### Step 3: Implement your IXI Module
-
-This part is where you get creative. Implement your ideas in `src/main/java/org.iota.ixi/Ixi.java`. Make sure to change
-the name from `example.ixi` to whatever your IXI module is called.
-
-### Step 4: Build your IXI.jar
-
-This step requires **Gradle**.
-
-```shell
-# move into the cloned repository (in which your build.gradle file is)
-cd Desktop/ixi
-
-# build the .jar file
-gradle fatJar
-```
-
-You should now find your finished `ixi-{VERSION}.jar` file.
-
-## Run the IXI on your Ict
-
-### Step 1: Start your IXI.jar
-
-```shell
-java -jar ixi-{VERSION}.jar
-```
-
-### Step 2: Add the IXI to your ict.cfg
-
-In your **ict.cfg** file, add your IXI to `ixis` and make sure that `ixi_enabled` is set to `true`:
+## Example Output
 
 ```
-ixis=my_cool_app.ixi
-ixi_enabled = true
+[KQTHUSQQKTVBVWSWIRL9CGF9ONMTBCSL9OVYUXEDARIVGMHZJWFOMCCZFJHYZPVOKCVDQFBRXECKUKXZT] uwec: 
+[KXEQ9PRGJHVPDIVMRLGHWKLUA99WQWGYBQHIPSYJVEMYNZNHLJGYKXJZZPHACCZOUYXVSLELYDTR9HTSW] uwec: 0.2.3 installed
+
+
+[LTWHCDWSPNLSCVMXINPLXWSCIKUTQXQLMSMLTJIB9REJHKVRVAQDMDNNZGQPASYUXJQTTVQQJOYZAJDOE] [SAMUEL] im using the updated version now :)
+[LWAIDXQMSZRSTQNWSXNYKHKUKCCKWXT9ZGWJUZUHMBVCXWNXZYJBCNQCJR9NBXCNXKZU9IJASJKIJONCM] [SAMUEL] anyone here?
+[KDVCXPQMXORESOVALNPZGQBEDRLOGUBEHBOPALYOQPQAMPHJVYDMHRWIIQLJLAQRIJVKSCKMETRUAZLIA] uwec: hi
+[LUFPKWUCIUEPYFSWLNOAZRMCPBORYNLJUM9VJCHLZE9RIMFRJPWI9LVJRN9KIEI9AMJHNRBBHRFEFECJC] uwec: I've also updated to 0.2.3
+[KSTNR9ZQITNVOXS9TJJBPTHI9DYAOEYQBWEYOBZXHLSERQDUKSYVRBXIUOPLVJLCNGOVNZSWIBGRQBGHZ] [SAMUEL] hello
+uwec you can also update your chat.ixi
+[KOVCZTGKMPURSAF9EMAYBEYL9BVERHJVTVRDXVJGSKMWXJJZHOM9IFVDRGDKMBHEQBMZJYMXCMSJSEW9E] [SAMUEL] great
+
 ```
-
-### Step 3: Start your Ict Client
-
-```shell
-java -jar ict-{VERSION}.jar
-```
-
-If everything went successfully, your Ict should print this line:
-
-```
-connecting to IXI 'my_cool_app.ixi' ... success
-```
-
-Your IXI should now be running.

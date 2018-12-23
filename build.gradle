@@ -24,7 +24,7 @@ task fatJar(type: Jar) {
     manifest {
         attributes 'Main-Class': 'org.iota.ixi.Ixi'
     }
-    baseName = 'ixi'
+    baseName = 'chat-ixi'
     destinationDir = file("$rootDir/")
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
