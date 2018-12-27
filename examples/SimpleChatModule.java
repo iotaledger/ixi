@@ -1,5 +1,6 @@
 package org.iota.ict.ixi;
 
+import org.iota.ict.ixi.IxiModule;
 import org.iota.ict.model.TransactionBuilder;
 import org.iota.ict.network.event.GossipFilter;
 import org.iota.ict.network.event.GossipReceiveEvent;
