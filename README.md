@@ -42,33 +42,27 @@ gradle fatJar
 
 You should now find your finished `ixi-{VERSION}.jar` file.
 
-## Run the IXI on your Ict
+## Run the IXI module with your Ict
 
-### Step 1: Start your IXI.jar
+### Step 1: Enable the IXI in your `ict.cfg` file:
 
-```shell
-java -jar ixi-{VERSION}.jar
-```
-
-### Step 2: Add the IXI to your ict.cfg
-
-In your **ict.cfg** file, add your IXI to `ixis` and make sure that `ixi_enabled` is set to `true`:
+The `ict.cfg` file will be created the first time you start your Ict.
+Just make sure that the `ict_enabled` property is set to `true`:
 
 ```
-ixis=my_cool_app.ixi
-ixi_enabled = true
+ict_enabled=true
 ```
 
-### Step 3: Start your Ict Client
+### Step 2: Start your Ict client
 
 ```shell
 java -jar ict-{VERSION}.jar
 ```
 
-If everything went successfully, your Ict should print this line:
+### Step 3: Start your IXI module
 
-```
-connecting to IXI 'my_cool_app.ixi' ... success
-```
+The name of your Ict is defined in the `ict.cfg` file.
 
-Your IXI should now be running.
+```shell
+java -jar ixi-{VERSION}.jar {ICT NAME}
+```
