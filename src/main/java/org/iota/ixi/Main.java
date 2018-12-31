@@ -11,10 +11,9 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Running IXI module for Ict version " + Constants.ICT_VERSION);
-        new Ixi();
         Properties properties = new Properties();
         properties.ixiEnabled = true;
-        properties.ixis.add(Ixi.NAME);
         new Ict(properties);
+        new Ixi(properties.name);
     }
 }

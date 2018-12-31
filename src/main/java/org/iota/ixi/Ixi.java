@@ -17,21 +17,14 @@ public class Ixi extends IxiModule {
     public static final String NAME = "example.ixi";
 
     public static void main(String[] args) {
-        new Ixi();
+        new Ixi(args.length >= 1 ? args[0] : "ict");
     }
 
-    public Ixi() {
-        super(NAME);
-        System.out.println(NAME + " started, waiting for Ict to connect ...");
-        System.out.println("Just add '"+NAME+"' to 'ixis' in your ict.cfg file and restart your Ict.\n");
-
-        // important: do not call any API functions such as 'findTransactionByHash()' before onIctConnect() is called!
-    }
-
-    @Override
-    public void onIctConnect(String name) {
-        System.out.println("Ict '" + name + "' connected, submitting message ...");
-        setGossipFilter(new GossipFilter().setWatchingAll(true)); // subscribe to all transactions
+    public Ixi(String ictName) {
+        super(NAME, ictName);
+        System.out.println(NAME + " started");
+        setGossipFilter(new GossipFilter().setWatchingAll(true));
+        System.out.println("submitting message ...");
         submit("Hello World!");
     }
 
