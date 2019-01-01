@@ -47,7 +47,7 @@ You should now find your finished `ixi-{VERSION}.jar` file.
 ### Step 1: Enable the IXI in your `ict.cfg` file:
 
 The `ict.cfg` file will be created the first time you start your Ict.
-Just make sure that the `ict_enabled` property is set to `true`:
+Just make sure that the `ixi_enabled` property is set to `true`:
 
 ```
 ixi_enabled=true
