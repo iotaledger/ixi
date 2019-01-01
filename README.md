@@ -50,7 +50,7 @@ The `ict.cfg` file will be created the first time you start your Ict.
 Just make sure that the `ict_enabled` property is set to `true`:
 
 ```
-ict_enabled=true
+ixi_enabled=true
 ```
 
 ### Step 2: Start your Ict client
