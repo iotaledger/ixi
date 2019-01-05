@@ -1,4 +1,4 @@
-package org.iota.ixi;
+package org.iota.ict.ixi;
 
 import org.iota.ict.Ict;
 import org.iota.ict.utils.Constants;
@@ -12,8 +12,8 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Running IXI module for Ict version " + Constants.ICT_VERSION);
         Properties properties = new Properties();
-        properties.ixiEnabled = true;
-        new Ict(properties);
-        new Ixi(properties.name);
+        properties.guiEnabled = false;
+        Ict ict = new Ict(properties);
+        new IxiImplementation(new IctProxy(ict));
     }
 }

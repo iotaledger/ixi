@@ -18,51 +18,52 @@ You can also manually download the repository source code if you don't have **Gi
 
 ### Step 2: Open the Project in your IDE
 
-```shell
-# if you are using intellij (requires Gradle)
-gradle idea
-```
+If you are using intellij, you might have to run `gradle idea`.
 
 ### Step 3: Implement your IXI Module
 
-This part is where you get creative. Implement your ideas in `src/main/java/org.iota.ixi/Ixi.java`. Make sure to change
-the name from `example.ixi` to whatever your IXI module is called.
+This part is where you get creative. Implement your ideas in **org.iota.ict.ixi.IxiImplementation.java**.
 
-### Step 4: Build your IXI.jar
+### Step 4: Write your mode.json
 
-This step requires **Gradle**.
+This file contains all the meta data of our IXI module. So fill it out carefully.
 
-```shell
-# move into the cloned repository (in which your build.gradle file is)
-cd Desktop/ixi
-
-# build the .jar file
-gradle fatJar
+```javascript
+// your module.json file
+{
+  // the name under which your IXI will appear
+  "name": "Example.ixi",
+  
+  // Describe your module in 2-3 sentences.
+  "description": "This module allows you to ...",
+  
+  // must match the GitHub repository you will later publish it to (format: username/repository)
+  "repository": "iotaledger/ixi",
+  
+  // enable if you run a REST web GUI under host:4567/modules/{MODULE_NAME}
+  // allows users to easily navigation from the ict web gui to your module's custom gui
+  "web_gui": false,
+  
+  // all Ict versions your ixi is compatible with
+  "supported_versions": ["0.4-SNAPSHOT", "0.4"]
+}
 ```
 
-You should now find your finished `ixi-{VERSION}.jar` file.
+### Step 5: Build your IXI.jar
+
+To build your `ixi.jar` simply run `gradle ixi` (requires **Gradle**).
+
+You should now find your finished l need
 
 ## Run the IXI module with your Ict
 
-### Step 1: Enable the IXI in your `ict.cfg` file:
+### Method A: Manual Download
 
-The `ict.cfg` file will be created the first time you start your Ict.
-Just make sure that the `ict_enabled` property is set to `true`:
+Go to [releases](./releases) and download the latest **ixi.jar** file. Put it into the **modules/**
+in your ict directory. Simply restart your Ict to load it.
 
-```
-ict_enabled=true
-```
+### Method B: Download via Web GUI
 
-### Step 2: Start your Ict client
-
-```shell
-java -jar ict-{VERSION}.jar
-```
-
-### Step 3: Start your IXI module
-
-The name of your Ict is defined in the `ict.cfg` file.
-
-```shell
-java -jar ixi-{VERSION}.jar {ICT NAME}
-```
+Visit your Ict's web GUI (requires `web_gui=true` in **ict.cfg**) and go to "IXI MODULES". Click on the
+**install** button and enter the GitHub URL or even just username/repository (e,g, iotaledger/chat.ixi).
+Once your IXI module has been downloaded, it will be started.
