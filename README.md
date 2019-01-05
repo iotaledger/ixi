@@ -52,8 +52,6 @@ This file contains all the meta data of our IXI module. So fill it out carefully
 
 To build your `ixi.jar` simply run `gradle ixi` (requires **Gradle**).
 
-You should now find your finished l need
-
 ## Run the IXI module with your Ict
 
 ### Method A: Manual Download
