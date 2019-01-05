@@ -1,11 +1,10 @@
-# IOTA Extension Interface (IXI)
+# IOTA eXtension Interface (IXI)
 
 ## About
 
-The IOTA Extension Interface provides an API that connects IXI modules to the [Ict](https://github.com/iotaledger/ict) core client.
-IXI modules are applications built on top of the Tangle protocol.
+The IOTA eXtension Interface is a minimal interface to build tangle applications (IXI modules) on top of the [Ict](https://github.com/iotaledger/ict) core client very easily.
 
-## Creating an IXI
+## Creating an IXI Module
 
 ### Step 1: Clone this Repository
 
