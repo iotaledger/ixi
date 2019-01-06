@@ -1,11 +1,10 @@
-# IOTA Extension Interface (IXI)
+# IOTA eXtension Interface (IXI)
 
 ## About
 
-The IOTA Extension Interface provides an API that connects IXI modules to the [Ict](https://github.com/iotaledger/ict) core client.
-IXI modules are applications built on top of the Tangle protocol.
+The IOTA eXtension Interface is a minimal interface to build tangle applications (IXI modules) on top of the [Ict](https://github.com/iotaledger/ict) core client very easily.
 
-## Creating an IXI
+## Creating an IXI Module
 
 ### Step 1: Clone this Repository
 
@@ -24,7 +23,7 @@ If you are using intellij, you might have to run `gradle idea`.
 
 This part is where you get creative. Implement your ideas in **org.iota.ict.ixi.Module.java**.
 
-### Step 4: Write your mode.json
+### Step 4: Write your module.json
 
 This file contains all the meta data of our IXI module. So fill it out carefully.
 
@@ -55,8 +54,6 @@ This file contains all the meta data of our IXI module. So fill it out carefully
 ### Step 5: Build your IXI.jar
 
 To build your `ixi.jar` simply run `gradle ixi` (requires **Gradle**).
-
-You should now find your finished l need
 
 ## Run the IXI module with your Ict
 
