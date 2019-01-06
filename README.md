@@ -22,7 +22,7 @@ If you are using intellij, you might have to run `gradle idea`.
 
 ### Step 3: Implement your IXI Module
 
-This part is where you get creative. Implement your ideas in **org.iota.ict.ixi.IxiImplementation.java**.
+This part is where you get creative. Implement your ideas in **org.iota.ict.ixi.Module.java**.
 
 ### Step 4: Write your mode.json
 
@@ -33,6 +33,9 @@ This file contains all the meta data of our IXI module. So fill it out carefully
 {
   // the name under which your IXI will appear
   "name": "Example.ixi",
+  
+  // your IXI module class, must be in package 'org.iota.ict.ixi'
+  "main_class": "org.iota.ict.ixi.Module",
   
   // Describe your module in 2-3 sentences.
   "description": "This module allows you to ...",

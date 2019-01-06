@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.iotaledger:ict:ad34781f4370019d0ea04dc1a84b00cb8df447f3'
+    compile 'com.github.iotaledger:ict:29a17976a03408d1fca9024bb35df73d9de85014'
 }
 
 task ixi(type: Jar) {

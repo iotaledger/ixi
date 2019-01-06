@@ -14,6 +14,7 @@ public class Main {
         Properties properties = new Properties();
         properties.guiEnabled = false;
         Ict ict = new Ict(properties);
-        new IxiImplementation(new IctProxy(ict));
+        Module module = new Module(new IctProxy(ict));
+        new Thread(module).run();
     }
 }

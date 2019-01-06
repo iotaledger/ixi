@@ -5,20 +5,20 @@ import org.iota.ict.network.event.GossipListener;
 
 /**
  * This is an example IXI module. Use it as template to implement your own module. Run Main.main() to test it.
- * Do neither rename this class nor move it into a different package. Use this constructor only for initialization
- * because it blocks Ict. Use run() as main thread.
+ * Do not move this class into a different package. If you rename it, update your module.json,
+ * Use this constructor only for initialization because it blocks Ict. Instead, use run() as main thread.
  * https://github.com/iotaledger/ixi
  * */
-public class IxiImplementation extends IxiModule {
+public class Module extends IxiModule {
 
-    public IxiImplementation(IctProxy proxy) {
-        super(proxy);
-        addGossipListener(new CutomGossipListener());
+    public Module(Ixi ixi) {
+        super(ixi);
+        ixi.addGossipListener(new CutomGossipListener());
     }
 
     public void run() {
         // submit a new transaction
-        submit("Hello world!");
+        ixi.submit("Hello world!");
     }
 }
 

@@ -1,5 +1,6 @@
 {
   "name": "Example.ixi",
+  "main_class": "org.iota.ict.ixi.Module",
   "description": "This IXI module prints every transaction message to the console. Submits a 'Hello World!' message on start.",
   "repository": "iotaledger/ixi",
   "web_gui": false,
