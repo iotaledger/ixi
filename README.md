@@ -33,8 +33,8 @@ This file contains all the meta data of our IXI module. So fill it out carefully
   // the name under which your IXI will appear
   "name": "Example.ixi",
   
-  // your IXI module class, must be in package 'org.iota.ict.ixi'
-  "main_class": "org.iota.ict.ixi.Module",
+  // your IXI module class with package prefix
+  "main_class": "my.package.MyModule",
   
   // Describe your module in 2-3 sentences.
   "description": "This module allows you to ...",
@@ -42,16 +42,31 @@ This file contains all the meta data of our IXI module. So fill it out carefully
   // must match the GitHub repository you will later publish it to (format: username/repository)
   "repository": "iotaledger/ixi",
   
-  // enable if you run a REST web GUI under host:4567/modules/{MODULE_NAME}
-  // allows users to easily navigation from the ict web gui to your module's custom gui
-  "web_gui": false,
+  // enter the port to visit your module's web GUI
+  // set to -1 if your module doesn't have one
+  // makes it easy for users to navigate from the ict web gui to your module's custom gui
+  "gui_port": -1,
   
   // all Ict versions your ixi is compatible with
   "supported_versions": ["0.4-SNAPSHOT", "0.4"]
 }
 ```
 
-### Step 5: Build your IXI.jar
+### Step 5: Write your versions.json
+
+The **versions.json** file in your master directory allows Ict clients to check whether there are any
+updates for your module or which version of your module they should use for their Ict version.
+
+```javascript
+{
+  // "ICT-VERSION": "MODULE-VERSION"
+  "0.4": "1.0",
+  "0.4.1": "1.1",
+  "0.5": "1.2"
+}
+```
+
+### Step 6: Build your IXI.jar
 
 To build your `ixi.jar` simply run `gradle ixi` (requires **Gradle**).
 

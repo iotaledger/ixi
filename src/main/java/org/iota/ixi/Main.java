@@ -1,6 +1,7 @@
-package org.iota.ict.ixi;
+package org.iota.ixi;
 
 import org.iota.ict.Ict;
+import org.iota.ict.ixi.IctProxy;
 import org.iota.ict.utils.Constants;
 import org.iota.ict.utils.Properties;
 

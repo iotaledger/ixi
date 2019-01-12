@@ -1,5 +1,7 @@
-package org.iota.ict.ixi;
+package org.iota.ixi;
 
+import org.iota.ict.ixi.Ixi;
+import org.iota.ict.ixi.IxiModule;
 import org.iota.ict.network.event.GossipEvent;
 import org.iota.ict.network.event.GossipListener;
 
