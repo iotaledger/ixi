@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'org.iota'
-version '0.4-SNAPSHOT'
+version '0.4'
 
 sourceCompatibility = 1.7
 repositories {
@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.iotaledger:ict:e0d21e134b0089efc786461606d732b770f58ec5'
+    compile 'com.github.iotaledger:ict:0.4'
 }
 
 task ixi(type: Jar) {

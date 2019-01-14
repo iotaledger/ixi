@@ -5,5 +5,5 @@
   "description": "This IXI module prints every transaction message to the console. Submits a 'Hello World!' message on start.",
   "repository": "iotaledger/ixi",
   "gui_port": -1,
-  "supported_versions": ["0.4-SNAPSHOT", "0.4"]
+  "supported_versions": ["0.4"]
 }
