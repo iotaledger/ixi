@@ -74,7 +74,7 @@ To build your `ixi.jar` simply run `gradle ixi` (requires **Gradle**).
 
 ### Method A: Manual Download
 
-Go to [releases](./releases) and download the latest **ixi.jar** file. Put it into the **modules/**
+Go to [releases](../../releases) and download the latest **ixi.jar** file. Put it into the **modules/**
 in your ict directory. Simply restart your Ict to load it.
 
 ### Method B: Download via Web GUI
