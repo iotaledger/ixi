@@ -25,7 +25,7 @@ This part is where you get creative. Implement your ideas in **org.iota.ict.ixi.
 
 ### Step 4: Write your module.json
 
-This file contains all the meta data of our IXI module. So fill it out carefully.
+This file contains all the meta data of your IXI module. So fill it out carefully.
 
 ```javascript
 // your module.json file
