@@ -25,3 +25,47 @@ An effect is a message to be shared between entities through an environment. Eac
 The environment is realized through a tag-like string (character sequence) while effects are realized through trit vectors. Entities will be implemented as an interface and can therefore be applied to anything. For the simplicity of this document we will assume that entities are functions in IXI modules; although in Java they would be implemented as classes which would indirectly invoke the module's functions. Each function published to an environment whose string is a concatenation of the module's name acting as namespace and the actual functions name.
 
 <img src="https://svgur.com/i/Ba8.svg" />
+
+## Implementation
+
+Each module, once injected, is able to expose its endpoints and publish effects to it. These endpoints and effects will be managed and processed automatically by IXI. In this sense, IXI represents the link between all the different modules. 
+
+### Data structure
+
+In order to handle all the endpoints with it's effects, it is recommended to use a mapping architecture as follows:
+
+```java
+Map<String, Queue<String>> effectQueues
+```
+  
+The key of this map represents the environment, with an link to its effect queue. As illustrated in the figure above, the environment key consists of the concatenation of the module's name acting as namespace and the actual functions name.
+
+Besides that, effects will be appended/polled sequentially to/from the appropriate effect queue. Please note that only IXI itself has direct access to this data structure.
+
+To be sure that a module publishes effects only to environments which are intended for them, we should consider also a security mechanism. This security mechanism could be provided direclty by IXI, by ensuring that the received environment actually comes from the module that is attempting to send its effect to it.
+
+In order to represent all the modules which subscribed to a specific environment, following data structure could be used:
+
+```java
+Map<String, EffectListener> subscribedEnvironments
+```
+
+The key of this mapping describes the environment with a link to the registered listener. This additional String parameter enables fast access to the appropriate EffectListener.
+
+### Methods
+
+To subscribe to an specific environment, following design is recommended:
+
+```java
+ixi.addEffectListener(new EffectListener(environment) {
+        public void onReceive(String effect) {
+        }
+});
+```
+
+To publish an effect to a specific environment following method could be used:
+
+```java
+ixi.submitEffect(String environment, String effectTrytes);
+```
+
