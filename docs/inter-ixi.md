@@ -24,7 +24,7 @@ An effect is a message to be shared between entities through an environment. Eac
 
 The environment is realized through a tag-like string (character sequence) while effects are realized through trit vectors. Entities will be implemented as an interface and can therefore be applied to anything. For the simplicity of this document we will assume that entities are functions in IXI modules; although in Java they would be implemented as classes which would indirectly invoke the module's functions. Each function published to an environment whose string is a concatenation of the module's name acting as namespace and the actual functions name.
 
-<img src="https://svgur.com/i/Ba8.svg" />
+<img src="https://raw.githubusercontent.com/iotaledger/ixi/master/docs/assets/eee.svg?sanitize=true" />
 
 ## Implementation
 
