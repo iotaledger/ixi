@@ -35,7 +35,7 @@ Each module, once injected, is able to expose its endpoints and publish effects 
 In order to handle all the endpoints with it's effects, it is recommended to use a mapping architecture as follows:
 
 ```java
-Map<String, Queue<String>> effectQueues
+Map<String, Queue<String>> effectQueueByEnvironment
 ```
   
 The key of this map represents the environment, with an link to its effect queue. As illustrated in the figure above, the environment key consists of the concatenation of the module's name acting as namespace and the actual functions name.
@@ -47,7 +47,7 @@ To be sure that a module publishes effects only to environments which are intend
 In order to represent all the modules which subscribed to a specific environment, following data structure could be used:
 
 ```java
-Map<String, EffectListener> subscribedEnvironments
+Map<String, Set<EffectListener>> subscribedListenersByEnvironment
 ```
 
 The key of this mapping describes the environment with a link to the registered listener. This additional String parameter enables fast access to the appropriate EffectListener.
@@ -57,8 +57,9 @@ The key of this mapping describes the environment with a link to the registered 
 To subscribe to an specific environment, following design is recommended:
 
 ```java
-ixi.addEffectListener(new EffectListener(environment) {
+ixi.addEffectListener(new EffectListener(String environment) {
         public void onReceive(String effect) {
+        	// process effect
         }
 });
 ```
