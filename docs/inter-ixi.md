@@ -26,6 +26,17 @@ The environment is realized through a tag-like string (character sequence) while
 
 <img src="https://raw.githubusercontent.com/iotaledger/ixi/master/docs/assets/eee.svg?sanitize=true" />
 
+### Virtual Function Calls
+
+While EEE only allows for data to be sent one-way (from one entity to the entities subscribed to an environment), virtual function calls including both parameters and a return value can be realized on top. To do that, the caller submits a return enviornment to the service so it can answer the request effect with a response effect to the specified environment. A request identificator should be added as well, so the response can be associated with the respective request.
+
+```
+Entity:  [Effect]                                                            -> Environment
+----------------------------------------------------------------------------------------------------------------
+Caller:  [requestId=8231, a=3, b=4, return="Caller.processMultiplyResult()"] -> "Service.multiply()"
+Service: [requestId=8231, result=12]                                         -> "Caller.processMultiplyResult()"
+```
+
 ## Implementation
 
 Each module, once injected, is able to expose its endpoints and publish effects to it. These endpoints and effects will be managed and processed automatically by IXI. In this sense, IXI represents the link between all the different modules. 
