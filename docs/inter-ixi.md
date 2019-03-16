@@ -46,36 +46,31 @@ Each module, once injected, is able to expose its endpoints and publish effects 
 In order to handle all the endpoints with it's effects, it is recommended to use a mapping architecture as follows:
 
 ```java
-Map<String, Queue<String>> effectQueueByEnvironment
+Map<String, Set<EffectListener>> listenersByEnvironment
 ```
   
-The key of this map represents the environment, with an link to its effect queue. As illustrated in the figure above, the environment key consists of the concatenation of the module's name acting as namespace and the actual functions name.
+The key of this map represents the environment, with a link to all subscribed listeneres. As illustrated in the figure above, the environment key consists of the concatenation of the module's name acting as namespace and the actual functions name.
 
-Besides that, effects will be appended/polled sequentially to/from the appropriate effect queue. Please note that only IXI itself has direct access to this data structure.
+Besides that, effects will be appended/polled sequentially to/from the listeners' effect queue.
 
-To be sure that a module publishes effects only to environments which are intended for them, we should consider also a security mechanism. This security mechanism could be provided direclty by IXI, by ensuring that the received environment actually comes from the module that is attempting to send its effect to it.
-
-In order to represent all the modules which subscribed to a specific environment, following data structure could be used:
-
-```java
-Map<String, Set<EffectListener>> subscribedListenersByEnvironment
-```
-
-The key of this mapping describes the environment with a link to the registered listener. This additional String parameter enables fast access to the appropriate EffectListener.
+To be sure that a module publishes effects only to environments intended for it, we should consider also a security mechanism. This security mechanism could be provided direclty by IXI, by ensuring that the environment key actually comes from the module that is attempting to send its effect to it.
 
 ### Methods
 
 To subscribe to an specific environment, following design is recommended:
 
 ```java
-ixi.addEffectListener(new EffectListener(String environment) {
-        public void onReceive(String effect) {
-        	// process effect
-        }
-});
+EffectListener listener = new EffectListenerQueue<String>();
+ixi.addEffectListener(listener);
 ```
 
-To publish an effect to a specific environment following method could be used:
+Effects can be accessed as follows:
+
+```java
+listener.getEffect()
+```
+
+To publish an effect to a specific environment, following method could be used:
 
 ```java
 ixi.submitEffect(String environment, String effectTrytes);
